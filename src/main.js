@@ -5,12 +5,25 @@ import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+// import VueRouter from 'vue-router'
+
+// import routes from '@/router/index.js'
 
 
 Vue.config.productionTip = false
-
+// vue.use(VueRouter)
 Vue.use(ElementUI)
 /* eslint-disable no-new */
+
+// const route = new VueRouter({
+//   routes
+// })
+
+// routes.beforeEach((to,from,next)=>{
+//   if(to.path != '/home'){
+//     next({path:'/form'})
+//   }
+// })
 new Vue({
   el: '#app',
   router,
