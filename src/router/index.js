@@ -5,6 +5,8 @@ import Login from '@/pages/Login'
 import Home from '@/pages/Home'
 import Main from '@/pages/Main'
 import Form from '@/pages/nav1/Form'
+import Table from '@/pages/nav1/Table'
+import Test from '@/pages/nav2/Test'
 
 Vue.use(Router)
 
@@ -23,7 +25,7 @@ export default new Router({
       hidden:true
     },
     {
-      path:'/home',
+      path:'/',
       name:'导航一',
       component:Home,
       iconCls: 'el-icon-message',
@@ -38,6 +40,11 @@ export default new Router({
           path:'/form',
           name:'Form',
           component:Form
+        },
+        {
+          path:'/table',
+          name:'Table',
+          component:Table
         }
       ]
     },
@@ -47,7 +54,11 @@ export default new Router({
       component:Home,
       iconCls:'el-icon-message',
       children:[
-
+        {
+          path:'/test',
+          name:'Test',
+          component:Test
+        }
       ]
     }
   ]

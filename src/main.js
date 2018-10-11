@@ -11,7 +11,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 
 
 Vue.config.productionTip = false
-// vue.use(VueRouter)
+// Vue.use(VueRouter)
 Vue.use(ElementUI)
 /* eslint-disable no-new */
 
@@ -19,8 +19,8 @@ Vue.use(ElementUI)
 //   routes
 // })
 
-// routes.beforeEach((to,from,next)=>{
-//   if(to.path != '/home'){
+// route.beforeEach((to,from,next)=>{
+//   if(from.path == '/home'){
 //     next({path:'/form'})
 //   }
 // })

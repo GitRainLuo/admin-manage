@@ -23,7 +23,7 @@
       <el-col :span="24" class="main">
         <aside>
           <!--导航菜单-->
-          <el-menu :default-active="$route.path" class="el-menu-vertical" @open="handleOpen" @close="handleClose" @select="handleSelect">
+          <el-menu :default-active="$route.path" class="el-menu-vertical" @open="handleOpen" @close="handleClose" @select="handleSelect" unique-opened router>
             <template v-for="(item,index) in $router.options.routes" v-if="!item.hidden">
               <el-submenu :index="index+''" v-if="!item.leaf">
                 <template slot="title"><i :class="item.iconCls"></i>{{item.name}}</template>
