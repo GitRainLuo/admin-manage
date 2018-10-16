@@ -11,11 +11,11 @@
         </el-col>
         <el-col :span="4" class="userinfo">
           <el-dropdown trigger="hover">
-            <span class="el-dropdown-link userinfo-inner">{{sysUserName}}</span>
+            <span class="el-dropdown-link userinfo-inner"><img :src="this.sysUserAvatar"/>{{sysUserName}}</span>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item>我的消息</el-dropdown-item>
               <el-dropdown-item>设置</el-dropdown-item>
-              <el-dropdown-item>退出</el-dropdown-item>
+              <el-dropdown-item divided @click.native="logout">退出</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
         </el-col>
@@ -76,7 +76,8 @@
       data () {
             return {
                 sysName:"admin-manage",
-                sysUserName:"admin"
+                sysUserName:"",
+                sysUserAvatar:''
             }
         },
       methods:{
@@ -88,8 +89,38 @@
         },
         handleSelect(){
 
-        }
+        },
+        logout(){
+            let _this = this;
+            this.$confirm('确认退出吗?','提示',{
+                type:'warning'
+            }).then(()=>{
+                //清除缓存
+              sessionStorage.removeItem('user');
+              //调到登录页面
+              _this.$router.push({
+                path:'/login'
+              });
+              this.$message({
+                type:'success',
+                message:'退出成功'
+              })
+            }).catch(
 
+            );
+        }
+      },
+      mounted(){
+          let user = sessionStorage.getItem('user');
+//          alert(user)
+          if(user){
+              //将JSON字符串转化为对象
+              user = JSON.parse(user)
+             //拿缓存的用户的name
+              this.sysUserName = user.name||'';
+              //拿缓存的用户的头像
+              this.sysUserAvatar = user.avatar||'';
+          }
       }
     }
 </script>
@@ -116,6 +147,13 @@
         .userinfo-inner{
           cursor: pointer;
           color: #fff;
+          img{
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            margin: 10px 0px 10px 10px;
+            float: right;
+          }
         }
       }
     }

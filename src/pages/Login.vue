@@ -20,6 +20,8 @@
   import ElInput from "../../node_modules/element-ui/packages/input/src/input";
   import ElCheckbox from "../../node_modules/element-ui/packages/checkbox/src/checkbox";
   import ElButton from "../../node_modules/element-ui/packages/button/src/button";
+  import {requestLogin} from '../api/api';
+  import router from '../router'
   export default{
     components: {
       ElButton,
@@ -48,8 +50,32 @@
       }
     },
     methods:{
-      handleSubmit:function () {
+      handleSubmit() {
         console.log("1")
+        this.$refs.userForm.validate((valid)=>{
+            if (valid){
+                this.logining = true;
+                var loginParams = {username:this.userForm.account,password:this.userForm.password};
+                requestLogin(loginParams).then(data =>{
+//                    alert(JSON.stringify(data))
+                    this.logining = false;
+                    let {msg,code,user} = data;
+                    if(code!= 200){
+                        this.$message({
+                          message:msg,
+                          type:'error'
+                        })
+                    }else {
+//                      alert(JSON.stringify(user))
+                        sessionStorage.setItem('user',JSON.stringify(user));
+                      this.$router.push({path:'/form'})
+                    }
+                });
+            }else {
+                console.log("error submit");
+                return false;
+            }
+        });
       }
     }
   }

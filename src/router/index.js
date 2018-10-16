@@ -15,7 +15,7 @@ export default new Router({
     {
       path: '/',
       //进入时默认为登录页面
-      redirect:'/home',
+      redirect:'/login',
       hidden:true
     },
     {

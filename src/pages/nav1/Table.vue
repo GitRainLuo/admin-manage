@@ -1,6 +1,6 @@
 <template>
     <el-form>
-      <el-form-item label="table">
+      <el-form-item label="table" labelWidth="80px" style="margin: 30px 20px;width: 60%;min-width: 600px">
         <el-input></el-input>
       </el-form-item>
     </el-form>

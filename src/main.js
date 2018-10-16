@@ -5,11 +5,12 @@ import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import Mock from './mock/mock'
 // import VueRouter from 'vue-router'
 
 // import routes from '@/router/index.js'
 
-
+Mock.bootstrap()
 Vue.config.productionTip = false
 // Vue.use(VueRouter)
 Vue.use(ElementUI)
