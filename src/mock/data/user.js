@@ -9,7 +9,21 @@ const LoginUsers = [
     password:'123456',
     avatar:'http://47.106.248.123/upload/5a438677084c4a29b22d9c053fce8a3f_avater.gif',
     // avatar:'../assets/avater.gif',
+    name:'admin'
+  },
+  {
+    id:2,
+    username:'jay',
+    password:'123456',
+    avatar:'http://47.106.248.123/upload/5a438677084c4a29b22d9c053fce8a3f_avater.gif',
     name:'jay'
+  },
+  {
+    id:3,
+    username:'xiaomi',
+    password:'123456',
+    avatar:'https://isr-prod.oss-cn-shenzhen.aliyuncs.com/mi.jpg',
+    name:'小米'
   }
 ];
 

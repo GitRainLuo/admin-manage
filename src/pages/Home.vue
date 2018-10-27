@@ -11,7 +11,10 @@
         </el-col>
         <el-col :span="4" class="userinfo">
           <el-dropdown trigger="hover">
+            <!--利用缓存获取头像-->
             <span class="el-dropdown-link userinfo-inner"><img :src="this.sysUserAvatar"/>{{sysUserName}}</span>
+            <!--直接拿本地的头像  assets下 得用require()-->
+            <!--<span class="el-dropdown-link userinfo-inner"><img :src="require('../assets/avater.gif')"/>{{sysUserName}}</span>-->
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item>我的消息</el-dropdown-item>
               <el-dropdown-item>设置</el-dropdown-item>
